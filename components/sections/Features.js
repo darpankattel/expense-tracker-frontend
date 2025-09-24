@@ -170,7 +170,7 @@ export default function Features() {
             <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                    <Image src="/aws-textract.png" width={60} height={60} />
+                    <Image src="/aws-textract.png" width={60} height={60} alt='AWS Textract Logo' />
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">AWS Textract Integration</h3>
                     <p className="text-gray-600">Advanced document analysis</p>
@@ -178,7 +178,7 @@ export default function Features() {
                 </div>
                 
                 <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  Our platform leverages Amazon Textract, AWS's machine learning service that 
+                  Our platform leverages Amazon Textract, AWS&apos;s machine learning service that 
                   automatically extracts text, handwriting, and data from scanned documents. 
                   This ensures maximum accuracy in expense tracking.
                 </p>
