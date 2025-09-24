@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, DollarSign, ExternalLink } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { useAuth } from "react-oidc-context";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const auth = useAuth();
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Architecture', href: '/about' },
@@ -56,23 +57,26 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              {!auth?.isAuthenticated ? (
               <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 2 * 0.1 }}
                 >
-                  <Link
-                    href="/auth"
+                  <button
+                    onClick={() => auth.signinRedirect()}
+                    target='_blank'
                     className={cn(
-                      'text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium',
+                      'text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium cursor-pointer',
                       'transition-all duration-300 ease-in-out',
                       'hover:bg-white/50 hover:backdrop-blur-sm',
                       'hover:scale-105 transform'
                     )}
                   >
                     Login / Signup
-                  </Link>
+                  </button>
                 </motion.div>
+              ):(
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -91,6 +95,7 @@ export default function Navbar() {
                         <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </motion.div>
+              )}
             </div>
           </div>
 

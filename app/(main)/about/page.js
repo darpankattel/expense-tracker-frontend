@@ -1,6 +1,6 @@
-import AboutHero from '../../components/sections/AboutHero';
-import AboutFeatures from '../../components/sections/AboutFeatures';
-import ArchitectureSection from '../../components/sections/ArchitectureSection';
+import AboutHero from '@/components/sections/AboutHero';
+import AboutFeatures from '@/components/sections/AboutFeatures';
+import ArchitectureSection from '@/components/sections/ArchitectureSection';
 
 export const metadata = {
   title: "About Architecture - ExpenseTracker | AWS Architecture",
