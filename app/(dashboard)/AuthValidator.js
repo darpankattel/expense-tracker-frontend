@@ -14,6 +14,7 @@ const AuthValidator = ({ children }) => {
         router.replace("/?message=authentication-required");
       }
     }
+    
   }, [auth.isLoading, auth.isAuthenticated, router]);
 
   // While auth is loading, optionally show a loading spinner
