@@ -8,7 +8,7 @@ export default function Dashboard() {
         {/* Header */}
         <div className="bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
-          <p className="text-gray-600">Welcome! Here's your expense overview.</p>
+          <p className="text-gray-600">Welcome! Here&apos;s your expense overview.</p>
         </div>
 
         {/* Placeholder for analytics */}
