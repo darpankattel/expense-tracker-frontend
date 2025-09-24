@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, DollarSign } from 'lucide-react';
+import { Menu, X, DollarSign, ExternalLink } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export default function Navbar() {
@@ -11,8 +11,7 @@ export default function Navbar() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Login / Signup', href: '/auth' },
+    { name: 'Architecture', href: '/about' },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -57,6 +56,41 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 2 * 0.1 }}
+                >
+                  <Link
+                    href="/auth"
+                    className={cn(
+                      'text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium',
+                      'transition-all duration-300 ease-in-out',
+                      'hover:bg-white/50 hover:backdrop-blur-sm',
+                      'hover:scale-105 transform'
+                    )}
+                  >
+                    Login / Signup
+                  </Link>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 3 * 0.1 }}
+                >
+
+                    <Link
+                    href={"/dashboard"}
+                    target='_blank'
+                    className={cn(
+                        "bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold",
+                        "hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105",
+                        "cursor-pointer flex items-center gap-2 group"
+                    )}>
+                        Dashboard
+                        <ExternalLink className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </motion.div>
             </div>
           </div>
 

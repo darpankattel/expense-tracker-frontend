@@ -8,7 +8,7 @@ import { cn } from '../../lib/utils';
 export default function Footer() {
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
+    { name: 'Architecture', href: '/about' },
     { name: 'Login / Signup', href: '/auth' },
   ];
 

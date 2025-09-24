@@ -3,7 +3,7 @@ import AboutFeatures from '../../components/sections/AboutFeatures';
 import ArchitectureSection from '../../components/sections/ArchitectureSection';
 
 export const metadata = {
-  title: "About Us - ExpenseTracker | AWS Architecture",
+  title: "About Architecture - ExpenseTracker | AWS Architecture",
   description: "Learn about ExpenseTracker's serverless AWS architecture and AI-powered expense management features.",
 };
 
