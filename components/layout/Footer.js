@@ -13,7 +13,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative py-12 overflow-hidden">
+    <footer className="relative py-12 overflow-hidden bg-white">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-blue-50 via-white to-transparent"></div>
       
