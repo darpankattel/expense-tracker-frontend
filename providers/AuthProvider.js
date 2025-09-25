@@ -6,9 +6,10 @@ import { WebStorageStateStore } from "oidc-client-ts";
 
 export default function CognitoAuthProvider({ children }) {
   const baseConfig = {
-        authority: process.env.NEXT_PUBLIC_COGNITO_DOMAIN,
+        authority: process.env.NEXT_PUBLIC_COGNITO_AUTHORITY,
         client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
         redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,
+        post_logout_redirect_uri: process.env.NEXT_PUBLIC_LOGOUT_URI,
         response_type: "code",
         scope: "email openid phone profile",
       };

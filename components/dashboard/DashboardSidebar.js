@@ -16,7 +16,6 @@ import {
 import { cn } from '@/lib/utils';
 import useIsDesktop from '@/hooks/useIsDesktop';
 import { useAuth } from "react-oidc-context";
-import Image from 'next/image';
 
 export default function DashboardSidebar() {
     const pathname = usePathname();
@@ -43,6 +42,26 @@ export default function DashboardSidebar() {
   ];
 
   const toggleSidebar = () => setIsOpen(isDesktop ? true : !isOpen);
+
+  const signoutRedirect = async () => {
+    try {
+      // Remove user from OIDC context and clear local storage
+      await auth.removeUser();
+      
+      // Now redirect to Cognito logout
+      const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
+      const logoutUri = process.env.NEXT_PUBLIC_LOGOUT_URI;
+      const cognitoDomain = process.env.NEXT_PUBLIC_COGNITO_DOMAIN;
+      
+      // Extract just the domain part (remove the user pool path)
+      const domain = cognitoDomain.replace('/us-east-1_Aioyuqx4Q', '');
+      
+      window.location.href = `${domain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+      
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
 
   return (
     <>
@@ -150,7 +169,7 @@ export default function DashboardSidebar() {
                 Settings
               </button>
               <button className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors cursor-pointer" onClick={()=>{
-                window.confirm("Are you sure you want to log out?") && auth.signoutSilent();
+                window.confirm("Are you sure you want to log out?") && signoutRedirect();
               }}>
                 <LogOut className="h-4 w-4" />
                 Sign Out
